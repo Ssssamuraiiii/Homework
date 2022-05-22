@@ -36,10 +36,7 @@ public class Main {
                         quit2=1;
                     }
                 }while(quit2==1);
-//
-//
-//				}
-                System.out.print("elemet with para:");
+             System.out.print("elemet with para:");
                 for (int i=0; i<max; i++) {
                     if(i%2==0) {
                         System.out.print(" "+mass[i]);
