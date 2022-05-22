@@ -1,0 +1,55 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        int quit;
+        do {
+            int max, posit=0 ;
+            int[] mass;
+
+            Scanner in = new Scanner(System.in);
+            System.out.print("ex # 2"+ '\n');
+            System.out.print("vvod chisel "+ '\n');
+            max=in.nextInt();
+
+            if(1<=max&&max<=10000) {//reg1
+                mass = new int[max];
+
+                int quit2;
+                in.nextLine();
+                do {
+                    System.out.print("vvedi"+max+" chisla cherez probil"+ '\n');
+                    String vvod=in.nextLine();
+                    String[] tok=vvod.split(" ");
+
+                    if(tok.length==max) { // reg
+
+
+                        for (int i=0; i<tok.length;i++) {
+                            int x=Integer.parseInt(tok[i]);
+                            mass[i]=x;
+                        }
+                        quit2=0;
+                    }
+                    else {
+                        System.out.print("vvel ne  "+max+" chisel"+ '\n');
+                        quit2=1;
+                    }
+                }while(quit2==1);
+
+                System.out.print("Kol-vo positive chisel: ");
+                for (int i=0; i<max; i++) {
+                    if(mass[i]>0) {
+                        posit++;
+                    }
+
+                }
+                System.out.print(posit);
+                quit=0;
+            }
+            else {// end
+                System.out.print("diapazon (1≤N≤10000)\n");
+                quit=1;
+            }
+        }while (quit==1);
+    }
+}
