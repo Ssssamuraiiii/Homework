@@ -1,0 +1,61 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        int quit;
+        do {
+            int max,ch=0 ;
+            int[] mass;
+
+            Scanner in = new Scanner(System.in);
+            System.out.print("Quest # 1"+ '\n');
+            System.out.print("Vvod chisel"+ '\n');
+            max=in.nextInt();
+
+            if(1<=max&&max<=10000) {// reg1 mas
+                mass = new int[max];
+
+                int quit2;
+                in.nextLine();
+                do {
+                    System.out.print("vvedit "+max+" cherez probil"+ '\n');
+                    String vvod=in.nextLine();
+                    String[] tok=vvod.split(" ");
+
+                    if(tok.length==max) { //  vvod masiva
+
+
+                        for (int i=0; i<tok.length;i++) {
+                            int x=Integer.parseInt(tok[i]);
+                            mass[i]=x;
+                        }
+                        quit2=0;
+                    }
+                    else {// Prpverka colvo chisel
+                        System.out.print("ti vvel ne "+max+" chisel"+ '\n');
+                        quit2=1;
+                    }
+                }while(quit2==1);
+
+                System.out.print("kol-vo chisel mas, bigger than :");
+                for (int i=0; i<max; i++) {
+                    int ii=i;
+                    if(ii-1<0) {
+                        ii=0;
+                    }else {
+                        ii=i-1;
+                    }
+                    if(mass[i]>mass[ii]) {
+                        ch++;
+                    }
+
+                }
+                System.out.print(ch);
+                quit=0;
+            }
+            else {//
+                System.out.print("Diapozon (1≤N≤100)\n");
+                quit=1;
+            }
+        }while (quit==1);
+    }
+}
