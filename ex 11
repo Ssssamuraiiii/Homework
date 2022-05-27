@@ -1,0 +1,61 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        int quit;
+        do {
+            int max,ch=0 ;
+            int[] mass;
+
+            Scanner in = new Scanner(System.in);
+            System.out.print("Quest # 7"+ '\n');
+            System.out.print("Vvod chisel"+ '\n');
+            max=in.nextInt();
+
+            if(1<=max&&max<=35) {// reg1 mas
+                mass = new int[max];
+
+                int quit2;
+                in.nextLine();
+                do {
+                    System.out.print("vvedit " + max + " cherez probil" + '\n');
+                    String vvod = in.nextLine();
+                    String[] tok = vvod.split(" ");
+
+                    if (tok.length == max) { // create mas
+
+
+                        for (int i = 0; i < tok.length; i++) {
+                            int x = Integer.parseInt(tok[i]);
+                            mass[i] = x;
+                        }
+                        quit2 = 0;
+                    } else {// Prpverka colvo chisel
+                        System.out.print("ti vvel ne " + max + " chisel" + '\n');
+                        quit2 = 1;
+                    }
+                } while (quit2 == 1);
+                int index = 0;
+                while (index < mass.length) {
+                    int count = 0;
+                    for (int i = index + 1; i < mass.length - count; i++) {
+                        if (mass[i] == mass[index]) {
+                            System.arraycopy(mass, i + 1, mass, i, mass.length - i - 1);
+                            count++;
+                            i--;
+                        }
+                    }
+                    mass = Arrays.copyOf(mass, mass.length - count);
+                    index++;
+                }
+                System.out.println(mass.length);
+
+                quit=0;
+            }
+            else {
+                System.out.print("Diapozon (1≤N≤35)\\n");
+                quit=1;
+            }
+        }while (quit==1);
+    }
+}
