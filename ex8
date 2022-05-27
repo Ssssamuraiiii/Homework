@@ -7,7 +7,7 @@ public class Main {
             int[] mass;
 
             Scanner in = new Scanner(System.in);
-            System.out.print("Quest # 7"+ '\n');
+            System.out.print("Quest # 8"+ '\n');
             System.out.print("Vvod chisel"+ '\n');
             max=in.nextInt();
 
